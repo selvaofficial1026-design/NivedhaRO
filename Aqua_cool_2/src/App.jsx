@@ -128,6 +128,7 @@ function MainApp() {
   const [locationError, setLocationError] = useState('');
 
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const isNavbarSolid = scrolled || !isHomePage;
 
@@ -226,7 +227,7 @@ function MainApp() {
               <div className='empty-cart-icon'><ShoppingCart size={48} /></div>
               <h4>Your cart is empty</h4>
               <p>Add some water products to get started!</p>
-              <button className='continue-shopping' onClick={() => setIsCartOpen(false)}>Browse Products</button>
+              <button className='continue-shopping' onClick={() => { setIsCartOpen(false); navigate('/products'); }}>Browse Products</button>
             </div>
           ) : (
             <div className='cart-items'>
