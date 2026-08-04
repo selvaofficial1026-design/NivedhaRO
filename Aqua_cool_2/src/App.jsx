@@ -169,18 +169,18 @@ function MainApp() {
   const handleConfirmOrder = () => {
     if (Object.keys(cart).length === 0) return;
     let total = 0;
-    let message = 'Hello Nivedha Water Service! %F0%9F%99%8F%0A%0A*Order Summary:*%0A';
+    let message = 'Greetings Nivedha Water Service,%0A%0AI would like to place an order for water delivery. Please find the details below:%0A%0A*Order Details:*%0A----------------------%0A';
     products.forEach(p => {
       if (cart[p.id]) {
         const qty = cart[p.id]; const cost = qty * p.price; total += cost;
-        message += '%F0%9F%92%A7 ' + p.name + ' x' + qty + ' = %E2%82%B9' + cost + '%0A';
+        message += '🔹 ' + p.name + '  |  Qty: ' + qty + '  |  %E2%82%B9' + cost + '%0A';
       }
     });
-    message += '%0A*Grand Total: %E2%82%B9' + total + '*';
-    message += '%0A%0A*Delivery Address:*%0A';
-    if (gpsLink) message += '%F0%9F%93%8D GPS: ' + encodeURIComponent(gpsLink) + '%0A';
-    if (manualAddress.trim()) message += '%F0%9F%8F%A0 ' + encodeURIComponent(manualAddress.trim()) + '%0A';
-    message += '%0AKindly confirm the delivery time. Thank you!';
+    message += '----------------------%0A*Total Amount Payable: %E2%82%B9' + total + '*%0A';
+    message += '%0A*Delivery Information:*%0A';
+    if (gpsLink) message += '%F0%9F%93%8D Location: ' + encodeURIComponent(gpsLink) + '%0A';
+    if (manualAddress.trim()) message += '%F0%9F%8F%A0 Address: ' + encodeURIComponent(manualAddress.trim()) + '%0A';
+    message += '%0APlease confirm the receipt of this order and let me know the estimated delivery time.%0A%0AThank you.';
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + message, '_blank');
     setIsAddressModalOpen(false);
   };
