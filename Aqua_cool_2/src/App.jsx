@@ -174,7 +174,7 @@ function MainApp() {
     products.forEach(p => {
       if (cart[p.id]) {
         const qty = cart[p.id]; const cost = qty * p.price; total += cost;
-        message += '🔹 ' + p.name + '  |  Qty: ' + qty + '  |  %E2%82%B9' + cost + '%0A';
+        message += '🔹 ' + p.name + ' x' + qty + ' = %E2%82%B9' + cost + '%0A';
       }
     });
     message += '----------------------%0A*Total Amount Payable: %E2%82%B9' + total + '*%0A';
