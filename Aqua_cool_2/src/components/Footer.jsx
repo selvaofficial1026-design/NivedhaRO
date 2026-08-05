@@ -18,7 +18,7 @@ export default function Footer({ isHomePage }) {
         
         <div className='footer-contact'>
           <h3>Contact Us</h3>
-          <p><Phone size={15} /> +91 86681 02797</p>
+          <p><Phone size={15} /> +91 88259 40239</p>
           <p><MapPin size={15} /> Located & Serving in Ariyalur</p>
           <p><Clock size={15} /> Open Daily — 7 AM to 9 PM</p>
         </div>

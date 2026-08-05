@@ -37,7 +37,7 @@ export default function CartSidebar({ isCartOpen, setIsCartOpen, cart, updateQua
                     <img src={p.image} alt={p.name} className='cart-item-img' />
                     <div className='cart-item-details'>
                       <h4>{p.name}</h4>
-                      <p className='cart-item-price'>₹{p.price} / unit</p>
+                      <p className='cart-item-price'>₹{p.price} {p.unitText || '/ unit'}</p>
                       <div className='mini-qty-controls'>
                         <button onClick={() => updateQuantity(p.id, -1)}><Minus size={13} /></button>
                         <span>{cart[p.id]}</span>

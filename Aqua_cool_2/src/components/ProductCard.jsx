@@ -10,7 +10,7 @@ export default function ProductCard({ product, qty, updateQuantity }) {
       </div>
       <div className='product-info'>
         <h3 className='product-title'>{product.name}</h3>
-        <div className='product-price'>₹{product.price} <span className='per-unit'>/ unit</span></div>
+        <div className='product-price'>₹{product.price} <span className='per-unit'>{product.unitText || '/ unit'}</span></div>
       </div>
       {qty > 0 ? (
         <div className='quantity-controls'>
