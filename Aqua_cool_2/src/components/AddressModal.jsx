@@ -10,7 +10,9 @@ export default function AddressModal({
   handleGetLocation,
   manualAddress,
   setManualAddress,
-  handleConfirmOrder
+  handleConfirmOrder,
+  deliveryFloor,
+  setDeliveryFloor
 }) {
   return (
     <div className={'address-modal-overlay ' + (isAddressModalOpen ? 'open' : '')} onClick={e => { if (e.target === e.currentTarget) setIsAddressModalOpen(false); }}>
@@ -31,7 +33,19 @@ export default function AddressModal({
           <div className='divider'><span>OR</span></div>
           <label className='address-label' htmlFor='manual-address'>Type Address Manually</label>
           <textarea id='manual-address' className='address-textarea' placeholder='e.g. Door No. 12, Gandhi Street, Ariyalur - 621704' value={manualAddress} onChange={e => setManualAddress(e.target.value)} rows='3' />
-          <button className='confirm-order-btn' onClick={handleConfirmOrder} disabled={!gpsLink && !manualAddress.trim()}>
+          
+          <div className='divider'><span>OPTIONS</span></div>
+          <label className='address-label' htmlFor='delivery-floor'>Delivery Floor</label>
+          <select id='delivery-floor' className='address-select' value={deliveryFloor} onChange={e => setDeliveryFloor(Number(e.target.value))}>
+            <option value={0}>Ground Floor (No extra charge)</option>
+            <option value={1}>1st Floor (₹5 extra per 20L Can)</option>
+            <option value={2}>2nd Floor (₹10 extra per 20L Can)</option>
+            <option value={3}>3rd Floor (₹15 extra per 20L Can)</option>
+            <option value={4}>4th Floor (₹20 extra per 20L Can)</option>
+            <option value={5}>5th Floor (₹25 extra per 20L Can)</option>
+          </select>
+
+          <button className='confirm-order-btn' style={{ marginTop: '20px' }} onClick={handleConfirmOrder} disabled={!gpsLink && !manualAddress.trim()}>
             <MessageCircle size={18} /> Confirm & Send Order
           </button>
         </div>

@@ -842,6 +842,18 @@ img { display: block; max-width: 100%; }
   color: var(--text-mid);
   margin-bottom: 0.5rem;
 }
+
+.address-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  background-color: var(--surface);
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
 .address-textarea {
   width: 100%;
   padding: 0.9rem 1rem;
