@@ -119,6 +119,7 @@ function MainApp() {
     if (gpsLink) message += '%F0%9F%93%8D Location: ' + encodeURIComponent(gpsLink) + '%0A';
     if (manualAddress.trim()) message += '%F0%9F%8F%A0 Address: ' + encodeURIComponent(manualAddress.trim()) + '%0A';
     message += '%0APlease confirm my order and let me know the estimated delivery time. Thank you!';
+    message += '%0A%0A%23NivedhaWater%20%23PureWater%20%23ROWater%20%23Ariyalur%20%23WaterDelivery%20%23HealthyLiving';
     
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + message, '_blank');
     setIsAddressModalOpen(false);

@@ -10,7 +10,7 @@ export default function HomePage() {
       <Helmet>
         <title>Nivedha Water Service | Premium RO Water Delivery in Ariyalur</title>
         <meta name="description" content="Ensure your family's health with our 7-stage RO purified drinking water. Fast, reliable, and hygienic doorstep delivery across Ariyalur. Order 20L cans and bottles online." />
-        <meta name="keywords" content="Water delivery Ariyalur, RO Water Can, Nivedha Water Service, 20L Water Can Delivery, Packaged Drinking Water, Ariyalur water supplier" />
+        <meta name="keywords" content="Water delivery Ariyalur, RO Water Can, Nivedha Water Service, 20L Water Can Delivery, Packaged Drinking Water, Ariyalur water supplier, Pure water home delivery, #NivedhaWater, #ROWater, #WaterDelivery, #Ariyalur, #PureWater, #HealthyLiving, #DrinkingWater, #CleanWater" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
