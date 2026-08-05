@@ -82,12 +82,29 @@ function MainApp() {
   const handleGetLocation = () => {
     setGpsLoading(true); setLocationError(''); setGpsLink('');
     if (!navigator.geolocation) {
-      setLocationError('GPS not supported. Please type your address manually.');
+      setLocationError('GPS not supported. Please enter your address manually.');
       setGpsLoading(false); return;
     }
     navigator.geolocation.getCurrentPosition(
-      ({ coords }) => { setGpsLink('https://maps.google.com/?q=' + coords.latitude + ',' + coords.longitude); setGpsLoading(false); },
-      () => { setLocationError('Could not get location. Please type your address.'); setGpsLoading(false); }
+      ({ coords }) => {
+        const { latitude, longitude, accuracy } = coords;
+        // Use a precise Google Maps link with high zoom
+        const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}&z=18`;
+        setGpsLink(mapsLink);
+        setGpsLoading(false);
+      },
+      (err) => {
+        let msg = 'Could not get location. Please enter your address manually.';
+        if (err.code === 1) msg = 'Location permission denied. Please allow location access and try again.';
+        else if (err.code === 3) msg = 'Location timed out. Please try again or enter address manually.';
+        setLocationError(msg);
+        setGpsLoading(false);
+      },
+      {
+        enableHighAccuracy: true,  // Uses GPS chip for precise location
+        timeout: 15000,            // Wait up to 15 seconds
+        maximumAge: 0              // Always get fresh location, no cached data
+      }
     );
   };
 

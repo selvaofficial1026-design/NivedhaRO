@@ -30,8 +30,13 @@ const AddressModal = memo(({
         <div className='address-modal-body'>
           <button className={'location-btn ' + (gpsLink ? 'success' : '')} onClick={handleGetLocation} disabled={gpsLoading}>
             {gpsLoading ? <Loader2 size={20} className='spinner' /> : gpsLink ? <CheckCircle size={20} /> : <Navigation size={20} />}
-            {gpsLoading ? 'Locating you...' : gpsLink ? 'Location Secured ✓' : 'Use My Current Location'}
+            {gpsLoading ? 'Locating you precisely...' : gpsLink ? 'Location Secured ✓' : 'Use My Current Location'}
           </button>
+          {gpsLink && (
+            <a href={gpsLink} target='_blank' rel='noreferrer' style={{display:'block', textAlign:'center', fontSize:'0.85rem', color:'#2874f0', marginTop:'-6px', marginBottom:'8px', textDecoration:'underline'}}>
+              📍 Tap to verify your location on Google Maps
+            </a>
+          )}
           {locationError && <p className='location-error'>⚠ {locationError}</p>}
           <div className='divider'><span>OR</span></div>
           <label className='address-label' htmlFor='manual-address'>Enter Address Manually</label>
