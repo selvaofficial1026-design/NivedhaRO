@@ -24,8 +24,8 @@ const CartSidebar = memo(({ isCartOpen, setIsCartOpen, cart, updateQuantity, set
           {totalItems === 0 ? (
             <div className='empty-cart'>
               <div className='empty-cart-icon'><ShoppingCart size={48} /></div>
-              <h4>Your cart is empty</h4>
-              <p>Add some water products to get started!</p>
+              <h4>Your Cart is Empty</h4>
+              <p>Add some refreshing water packs to get started!</p>
               <button className='continue-shopping' onClick={() => { setIsCartOpen(false); navigate('/products'); }}>Browse Products</button>
             </div>
           ) : (

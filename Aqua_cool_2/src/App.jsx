@@ -92,7 +92,7 @@ function MainApp() {
     let total = 0;
     let num20LCans = 0;
     
-    let message = 'Greetings Nivedha Water Service,%0A%0AI would like to place an order for water delivery. Please find the details below:%0A%0A*Order Details:*%0A----------------------%0A';
+    let message = 'Hello Nivedha Water Service,%0A%0AI would like to place an order for water delivery. Here are my details:%0A%0A*Order Details:*%0A----------------------%0A';
     products.forEach(p => {
       if (cart[p.id]) {
         const qty = cart[p.id]; const cost = qty * p.price; total += cost;
@@ -109,12 +109,12 @@ function MainApp() {
       total += floorCharge;
     }
     
-    message += '----------------------%0A*Total Amount Payable: %E2%82%B9' + total + '*%0A';
+    message += '----------------------%0A*Total Payable: %E2%82%B9' + total + '*%0A';
     message += '%0A*Delivery Information:*%0A';
     message += '🏢 Delivery Floor: ' + (deliveryFloor === '' ? 'Not Specified' : (floor === 0 ? 'Ground Floor' : `${floor} Floor`)) + '%0A';
     if (gpsLink) message += '%F0%9F%93%8D Location: ' + encodeURIComponent(gpsLink) + '%0A';
     if (manualAddress.trim()) message += '%F0%9F%8F%A0 Address: ' + encodeURIComponent(manualAddress.trim()) + '%0A';
-    message += '%0APlease confirm the receipt of this order and let me know the estimated delivery time.%0A%0AThank you.';
+    message += '%0APlease confirm my order and let me know the estimated delivery time. Thank you!';
     
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + message, '_blank');
     setIsAddressModalOpen(false);

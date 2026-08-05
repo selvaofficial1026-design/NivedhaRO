@@ -30,8 +30,8 @@ export default function ProductsPage({ cart, updateQuantity }) {
       <section className='products-section'>
         <div className='section-header'>
           <div className='section-tag'>Our Products</div>
-          <h2>Choose Your Pack</h2>
-          <p>Premium RO purified water in sizes for every need.</p>
+          <h2>Choose Your Perfect Pack</h2>
+          <p>Premium RO-purified water, available in sizes tailored to your everyday needs.</p>
         </div>
         <div className='products-grid'>
           {products.map(product => {

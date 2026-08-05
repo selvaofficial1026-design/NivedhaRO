@@ -9,12 +9,12 @@ export const products = [
 ];
 
 export const features = [
-  { icon: 'ShieldCheck', title: '7-Stage RO Purified',    desc: 'Advanced RO + UV tech ensures 100% germ-free water.' },
-  { icon: 'Truck',       title: 'Same-Day Delivery',      desc: 'Fast doorstep delivery across all of Ariyalur.' },
-  { icon: 'Droplets',    title: 'Added Minerals',         desc: 'Enriched with Calcium & Magnesium for a crisp taste.' },
-  { icon: 'Star',        title: 'Strict Quality Control', desc: 'Every batch is lab-tested to the highest standards.' },
-  { icon: 'MessageCircle', title: 'Easy WhatsApp Order', desc: 'One click to order — no apps, no hassle.' },
-  { icon: 'Award',       title: 'Trusted in Ariyalur',   desc: 'Hundreds of happy families served every day.' },
-  { icon: 'Clock',       title: '24/7 Availability',     desc: 'Order anytime — we are always ready to deliver.' },
-  { icon: 'Zap',         title: 'Affordable Prices',     desc: 'Premium quality water at the most competitive prices.' },
+  { icon: 'ShieldCheck', title: '7-Stage RO Purified',    desc: 'Advanced RO and UV technology for 100% germ-free, crystal-clear water.' },
+  { icon: 'Truck',       title: 'Same-Day Delivery',      desc: 'Lightning-fast, reliable doorstep delivery anywhere in Ariyalur.' },
+  { icon: 'Droplets',    title: 'Added Minerals',         desc: 'Infused with essential minerals like Calcium and Magnesium for a refreshing taste.' },
+  { icon: 'Star',        title: 'Strict Quality Control', desc: 'Every single drop is lab-tested to meet the highest safety standards.' },
+  { icon: 'MessageCircle', title: 'Easy WhatsApp Order', desc: 'Order instantly with a single click—no extra apps, no hassle.' },
+  { icon: 'Award',       title: 'Trusted in Ariyalur',   desc: 'Proudly serving hundreds of happy, healthy families every day.' },
+  { icon: 'Clock',       title: '24/7 Availability',     desc: 'Place your order anytime. We\'re always ready to serve you.' },
+  { icon: 'Zap',         title: 'Affordable Prices',     desc: 'Premium hydration at prices that won\'t break the bank.' },
 ];

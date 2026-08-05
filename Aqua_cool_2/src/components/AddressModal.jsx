@@ -23,18 +23,18 @@ const AddressModal = memo(({
         <div className='address-modal-header'>
           <div>
             <h3>Delivery Address</h3>
-            <p className='modal-subtitle'>We need your location for accurate delivery.</p>
+            <p className='modal-subtitle'>Please provide your location for a swift and accurate delivery.</p>
           </div>
           <button className='close-cart' onClick={() => setIsAddressModalOpen(false)}><X size={20} /></button>
         </div>
         <div className='address-modal-body'>
           <button className={'location-btn ' + (gpsLink ? 'success' : '')} onClick={handleGetLocation} disabled={gpsLoading}>
             {gpsLoading ? <Loader2 size={20} className='spinner' /> : gpsLink ? <CheckCircle size={20} /> : <Navigation size={20} />}
-            {gpsLoading ? 'Getting Location...' : gpsLink ? 'Location Captured ✓' : 'Use My Current Location'}
+            {gpsLoading ? 'Locating you...' : gpsLink ? 'Location Secured ✓' : 'Use My Current Location'}
           </button>
           {locationError && <p className='location-error'>⚠ {locationError}</p>}
           <div className='divider'><span>OR</span></div>
-          <label className='address-label' htmlFor='manual-address'>Type Address Manually</label>
+          <label className='address-label' htmlFor='manual-address'>Enter Address Manually</label>
           <textarea id='manual-address' className='address-textarea' placeholder='e.g. Door No. 12, Gandhi Street, Ariyalur - 621704' value={manualAddress} onChange={e => setManualAddress(e.target.value)} rows='3' />
           
           <div className='divider'><span>OPTIONS</span></div>
@@ -48,7 +48,7 @@ const AddressModal = memo(({
             <option value={4}>4th Floor (₹20 extra per 20L Can)</option>
             <option value={5}>5th Floor (₹25 extra per 20L Can)</option>
           </select>
-          {has20LCan && deliveryFloor === '' && <p className='location-error' style={{marginTop: '-5px', marginBottom: '10px', fontSize: '0.85rem'}}>⚠ Please select a delivery floor for your 20L Can(s).</p>}
+          {has20LCan && deliveryFloor === '' && <p className='location-error' style={{marginTop: '-5px', marginBottom: '10px', fontSize: '0.85rem'}}>⚠ Please specify the delivery floor for your 20L Can(s).</p>}
 
           <button className='confirm-order-btn' style={{ marginTop: '10px' }} onClick={handleConfirmOrder} disabled={(!gpsLink && !manualAddress.trim()) || !isFloorValid}>
             <MessageCircle size={18} /> Confirm & Send Order

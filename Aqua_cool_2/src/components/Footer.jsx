@@ -10,7 +10,7 @@ const Footer = memo(({ isHomePage }) => {
       <div className='footer-content'>
         <div className='footer-brand'>
           <h2><Droplets size={22} /> Nivedha <span>Water</span></h2>
-          <p>Premium purity in every drop. Delivering health and hydration across Ariyalur since day one.</p>
+          <p>Purity in every drop. Delivering health and premium hydration across Ariyalur since day one.</p>
           <a className='footer-whatsapp' href={'https://wa.me/' + WHATSAPP_NUMBER} target='_blank' rel='noreferrer'>
             <MessageCircle size={16} /> Chat on WhatsApp
           </a>
@@ -20,7 +20,7 @@ const Footer = memo(({ isHomePage }) => {
           <h3>Contact Us</h3>
           <p><Phone size={15} /> +91 88259 40239</p>
           <p><MapPin size={15} /> Located & Serving in Ariyalur</p>
-          <p><Clock size={15} /> Open Daily — 7 AM to 9 PM</p>
+          <p><Clock size={15} /> Open Daily: 7:00 AM – 9:00 PM</p>
         </div>
       </div>
       <div className='footer-bottom'>
