@@ -57,7 +57,7 @@ export default function ProductsPage({ cart, updateQuantity }) {
             {[...features, ...features].map((f, idx) => {
               const IconComp = iconMap[f.icon];
               return (
-                <div key={idx} className='marquee-item'>
+                <div key={f.icon + '-' + idx} className='marquee-item'>
                   <div className='slide-card'>
                     <div className='feature-icon'>{IconComp && <IconComp size={32} />}</div>
                     <h3>{f.title}</h3>

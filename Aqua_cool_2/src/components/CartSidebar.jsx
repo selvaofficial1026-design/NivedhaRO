@@ -6,7 +6,7 @@ import { products } from '../constants/data';
 const CartSidebar = memo(({ isCartOpen, setIsCartOpen, cart, updateQuantity, setCart, openAddressModal }) => {
   const navigate = useNavigate();
   const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
-  const grandTotal = products.reduce((t, p) => t + (cart[p.id] || 0) * p.price, 0);
+  const grandTotal = parseFloat(products.reduce((t, p) => t + (cart[p.id] || 0) * p.price, 0).toFixed(2));
 
   return (
     <>
@@ -45,7 +45,7 @@ const CartSidebar = memo(({ isCartOpen, setIsCartOpen, cart, updateQuantity, set
                       </div>
                     </div>
                     <div className='cart-item-right'>
-                      <div className='cart-item-total'>₹{cart[p.id] * p.price}</div>
+                      <div className='cart-item-total'>₹{parseFloat((cart[p.id] * p.price).toFixed(2))}</div>
                       <button className='cart-item-remove' onClick={() => setCart(prev => { const n = { ...prev }; delete n[p.id]; return n; })}><X size={14} /></button>
                     </div>
                   </div>

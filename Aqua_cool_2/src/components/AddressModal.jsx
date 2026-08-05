@@ -37,18 +37,22 @@ const AddressModal = memo(({
           <label className='address-label' htmlFor='manual-address'>Enter Address Manually</label>
           <textarea id='manual-address' className='address-textarea' placeholder='e.g. Door No. 12, Gandhi Street, Ariyalur - 621704' value={manualAddress} onChange={e => setManualAddress(e.target.value)} rows='3' />
           
-          <div className='divider'><span>OPTIONS</span></div>
-          <label className='address-label' htmlFor='delivery-floor'>Delivery Floor {has20LCan && <span style={{color: 'red'}}>*</span>}</label>
-          <select id='delivery-floor' className='address-select' value={deliveryFloor} onChange={e => setDeliveryFloor(e.target.value === '' ? '' : Number(e.target.value))}>
-            <option value="" disabled>-- Select Delivery Floor --</option>
-            <option value={0}>Ground Floor (No extra charge)</option>
-            <option value={1}>1st Floor (₹5 extra per 20L Can)</option>
-            <option value={2}>2nd Floor (₹10 extra per 20L Can)</option>
-            <option value={3}>3rd Floor (₹15 extra per 20L Can)</option>
-            <option value={4}>4th Floor (₹20 extra per 20L Can)</option>
-            <option value={5}>5th Floor (₹25 extra per 20L Can)</option>
-          </select>
-          {has20LCan && deliveryFloor === '' && <p className='location-error' style={{marginTop: '-5px', marginBottom: '10px', fontSize: '0.85rem'}}>⚠ Please specify the delivery floor for your 20L Can(s).</p>}
+          {has20LCan && (
+            <>
+              <div className='divider'><span>DELIVERY FLOOR</span></div>
+              <label className='address-label' htmlFor='delivery-floor'>Delivery Floor <span style={{color: 'red'}}>*</span></label>
+              <select id='delivery-floor' className='address-select' value={deliveryFloor} onChange={e => setDeliveryFloor(e.target.value === '' ? '' : Number(e.target.value))}>
+                <option value="" disabled>-- Select Delivery Floor --</option>
+                <option value={0}>Ground Floor (No extra charge)</option>
+                <option value={1}>1st Floor (₹5 extra per 20L Can)</option>
+                <option value={2}>2nd Floor (₹10 extra per 20L Can)</option>
+                <option value={3}>3rd Floor (₹15 extra per 20L Can)</option>
+                <option value={4}>4th Floor (₹20 extra per 20L Can)</option>
+                <option value={5}>5th Floor (₹25 extra per 20L Can)</option>
+              </select>
+              {deliveryFloor === '' && <p className='location-error' style={{marginTop: '-5px', marginBottom: '10px', fontSize: '0.85rem'}}>⚠ Please specify the delivery floor for your 20L Can(s).</p>}
+            </>
+          )}
 
           <button className='confirm-order-btn' style={{ marginTop: '10px' }} onClick={handleConfirmOrder} disabled={(!gpsLink && !manualAddress.trim()) || !isFloorValid}>
             <MessageCircle size={18} /> Confirm & Send Order

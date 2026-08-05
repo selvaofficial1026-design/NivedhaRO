@@ -21,8 +21,12 @@ function ScrollToTop() {
 function MainApp() {
   // Initialize cart from localStorage
   const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('nivedha_cart');
-    return savedCart ? JSON.parse(savedCart) : {};
+    try {
+      const savedCart = localStorage.getItem('nivedha_cart');
+      return savedCart ? JSON.parse(savedCart) : {};
+    } catch {
+      return {};
+    }
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -95,8 +99,8 @@ function MainApp() {
     let message = 'Hello Nivedha Water Service,%0A%0AI would like to place an order for water delivery. Here are my details:%0A%0A*Order Details:*%0A----------------------%0A';
     products.forEach(p => {
       if (cart[p.id]) {
-        const qty = cart[p.id]; const cost = qty * p.price; total += cost;
-        message += '🔹 ' + p.name + ' x' + qty + ' = %E2%82%B9' + cost + '%0A';
+        const qty = cart[p.id]; const cost = parseFloat((qty * p.price).toFixed(2)); total += cost;
+        message += '🔹 ' + p.name + ' x' + qty + ' = %E2%82%B9' + cost.toFixed(2) + '%0A';
         if (p.id === 1) num20LCans = qty; // 20L can ID is 1
       }
     });
@@ -109,7 +113,7 @@ function MainApp() {
       total += floorCharge;
     }
     
-    message += '----------------------%0A*Total Payable: %E2%82%B9' + total + '*%0A';
+    message += '----------------------%0A*Total Payable: %E2%82%B9' + total.toFixed(2) + '*%0A';
     message += '%0A*Delivery Information:*%0A';
     message += '🏢 Delivery Floor: ' + (deliveryFloor === '' ? 'Not Specified' : (floor === 0 ? 'Ground Floor' : `${floor} Floor`)) + '%0A';
     if (gpsLink) message += '%F0%9F%93%8D Location: ' + encodeURIComponent(gpsLink) + '%0A';

@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-import { Droplets, MessageCircle, Phone, MapPin, Clock } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../constants/data';
+import { Droplets, Phone, MapPin, Clock } from 'lucide-react';
 
 const Footer = memo(({ isHomePage }) => {
   if (!isHomePage) return null;
