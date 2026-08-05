@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-site-name.netlify.app/sitemap.xml
+Sitemap: https://nivedhawater.netlify.app/sitemap.xml

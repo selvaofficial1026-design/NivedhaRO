@@ -17,7 +17,7 @@ export default function HomePage() {
         <meta property="og:title" content="Nivedha Water Service | Premium RO Water Delivery in Ariyalur" />
         <meta property="og:description" content="100% pure, 7-stage RO purified drinking water. Fast, reliable, and hygienic doorstep delivery across Ariyalur." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?q=80&w=1200&auto=format&fit=crop" />
-        <meta property="og:url" content="https://nivedhawater.com" />
+        <meta property="og:url" content="https://nivedhawater.netlify.app" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -34,7 +34,7 @@ export default function HomePage() {
               "name": "Nivedha Water Service",
               "image": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?q=80&w=1200&auto=format&fit=crop",
               "@id": "",
-              "url": "https://nivedhawater.com",
+              "url": "https://nivedhawater.netlify.app",
               "telephone": "+918825940239",
               "address": {
                 "@type": "PostalAddress",
@@ -64,7 +64,7 @@ export default function HomePage() {
                 "closes": "21:00"
               },
               "sameAs": [
-                "https://nivedhawater.com"
+                "https://nivedhawater.netlify.app"
               ] 
             }
           `}

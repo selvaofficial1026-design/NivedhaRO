@@ -18,7 +18,7 @@ export default function ProductsPage({ cart, updateQuantity }) {
         <meta property="og:title" content="Our Products | Nivedha Water Service" />
         <meta property="og:description" content="Choose from our premium RO purified water packs. Fast doorstep delivery in Ariyalur." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=1200&auto=format&fit=crop" />
-        <meta property="og:url" content="https://nivedhawater.com/products" />
+        <meta property="og:url" content="https://nivedhawater.netlify.app/products" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
