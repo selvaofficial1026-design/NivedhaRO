@@ -1,0 +1,31 @@
+import React from 'react';
+import { Droplets, MessageCircle, Phone, MapPin, Clock } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '../constants/data';
+
+export default function Footer({ isHomePage }) {
+  if (!isHomePage) return null;
+  
+  return (
+    <footer>
+      <div className='footer-content'>
+        <div className='footer-brand'>
+          <h2><Droplets size={22} /> Nivedha <span>Water</span></h2>
+          <p>Premium purity in every drop. Delivering health and hydration across Ariyalur since day one.</p>
+          <a className='footer-whatsapp' href={'https://wa.me/' + WHATSAPP_NUMBER} target='_blank' rel='noreferrer'>
+            <MessageCircle size={16} /> Chat on WhatsApp
+          </a>
+        </div>
+        
+        <div className='footer-contact'>
+          <h3>Contact Us</h3>
+          <p><Phone size={15} /> +91 86681 02797</p>
+          <p><MapPin size={15} /> Located & Serving in Ariyalur</p>
+          <p><Clock size={15} /> Open Daily — 7 AM to 9 PM</p>
+        </div>
+      </div>
+      <div className='footer-bottom'>
+        <p>© {new Date().getFullYear()} Nivedha Water Service, Ariyalur. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+}
