@@ -11,9 +11,6 @@ const Footer = memo(({ isHomePage }) => {
         <div className='footer-brand'>
           <h2><Droplets size={22} /> Nivedha <span>Water</span></h2>
           <p>Purity in every drop. Delivering health and premium hydration across Ariyalur since day one.</p>
-          <a className='footer-whatsapp' href={'https://wa.me/' + WHATSAPP_NUMBER} target='_blank' rel='noreferrer'>
-            <MessageCircle size={16} /> Chat on WhatsApp
-          </a>
         </div>
         
         <div className='footer-contact'>
