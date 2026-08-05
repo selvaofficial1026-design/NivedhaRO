@@ -810,6 +810,30 @@ img { display: block; max-width: 100%; }
 .location-btn.success { background: var(--green); color: var(--white); border-color: var(--green); }
 .location-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
+.verify-location-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1.5px solid rgba(40, 116, 240, 0.4);
+  border-radius: 10px;
+  color: #2874f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.verify-location-btn:hover {
+  background: rgba(40, 116, 240, 0.08);
+  border-color: #2874f0;
+}
+
 .location-error {
   color: var(--red);
   font-size: 0.85rem;
