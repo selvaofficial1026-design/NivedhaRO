@@ -8,12 +8,13 @@ export default function AddressModal({
   gpsLoading,
   locationError,
   handleGetLocation,
-  manualAddress,
-  setManualAddress,
   handleConfirmOrder,
   deliveryFloor,
-  setDeliveryFloor
+  setDeliveryFloor,
+  has20LCan
 }) {
+  const isFloorValid = has20LCan ? deliveryFloor !== '' : true;
+
   return (
     <div className={'address-modal-overlay ' + (isAddressModalOpen ? 'open' : '')} onClick={e => { if (e.target === e.currentTarget) setIsAddressModalOpen(false); }}>
       <div className='address-modal' role='dialog' aria-modal='true'>
@@ -35,8 +36,9 @@ export default function AddressModal({
           <textarea id='manual-address' className='address-textarea' placeholder='e.g. Door No. 12, Gandhi Street, Ariyalur - 621704' value={manualAddress} onChange={e => setManualAddress(e.target.value)} rows='3' />
           
           <div className='divider'><span>OPTIONS</span></div>
-          <label className='address-label' htmlFor='delivery-floor'>Delivery Floor</label>
-          <select id='delivery-floor' className='address-select' value={deliveryFloor} onChange={e => setDeliveryFloor(Number(e.target.value))}>
+          <label className='address-label' htmlFor='delivery-floor'>Delivery Floor {has20LCan && <span style={{color: 'red'}}>*</span>}</label>
+          <select id='delivery-floor' className='address-select' value={deliveryFloor} onChange={e => setDeliveryFloor(e.target.value === '' ? '' : Number(e.target.value))}>
+            <option value="" disabled>-- Select Delivery Floor --</option>
             <option value={0}>Ground Floor (No extra charge)</option>
             <option value={1}>1st Floor (₹5 extra per 20L Can)</option>
             <option value={2}>2nd Floor (₹10 extra per 20L Can)</option>
@@ -44,8 +46,9 @@ export default function AddressModal({
             <option value={4}>4th Floor (₹20 extra per 20L Can)</option>
             <option value={5}>5th Floor (₹25 extra per 20L Can)</option>
           </select>
+          {has20LCan && deliveryFloor === '' && <p className='location-error' style={{marginTop: '-5px', marginBottom: '10px', fontSize: '0.85rem'}}>⚠ Please select a delivery floor for your 20L Can(s).</p>}
 
-          <button className='confirm-order-btn' style={{ marginTop: '20px' }} onClick={handleConfirmOrder} disabled={!gpsLink && !manualAddress.trim()}>
+          <button className='confirm-order-btn' style={{ marginTop: '10px' }} onClick={handleConfirmOrder} disabled={(!gpsLink && !manualAddress.trim()) || !isFloorValid}>
             <MessageCircle size={18} /> Confirm & Send Order
           </button>
         </div>

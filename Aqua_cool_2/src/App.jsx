@@ -33,7 +33,7 @@ function MainApp() {
   const [manualAddress, setManualAddress] = useState('');
   const [locationError, setLocationError] = useState('');
 
-  const [deliveryFloor, setDeliveryFloor] = useState(0);
+  const [deliveryFloor, setDeliveryFloor] = useState('');
 
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -71,7 +71,7 @@ function MainApp() {
   const openAddressModal = () => {
     setIsCartOpen(false);
     setGpsLink(''); setManualAddress(''); setLocationError('');
-    setDeliveryFloor(0);
+    setDeliveryFloor('');
     setIsAddressModalOpen(true);
   };
 
@@ -102,15 +102,16 @@ function MainApp() {
     });
     
     // Calculate Floor Delivery Charge
-    const floorCharge = num20LCans * deliveryFloor * 5;
+    const floor = Number(deliveryFloor) || 0;
+    const floorCharge = num20LCans * floor * 5;
     if (floorCharge > 0) {
-      message += `🔹 Floor Delivery Charge (${deliveryFloor} Floor${deliveryFloor > 1 ? 's' : ''}) = %E2%82%B9${floorCharge}%0A`;
+      message += `🔹 Floor Delivery Charge (${floor} Floor${floor > 1 ? 's' : ''}) = %E2%82%B9${floorCharge}%0A`;
       total += floorCharge;
     }
     
     message += '----------------------%0A*Total Amount Payable: %E2%82%B9' + total + '*%0A';
     message += '%0A*Delivery Information:*%0A';
-    message += '🏢 Delivery Floor: ' + (deliveryFloor === 0 ? 'Ground Floor' : `${deliveryFloor} Floor`) + '%0A';
+    message += '🏢 Delivery Floor: ' + (deliveryFloor === '' ? 'Not Specified' : (floor === 0 ? 'Ground Floor' : `${floor} Floor`)) + '%0A';
     if (gpsLink) message += '%F0%9F%93%8D Location: ' + encodeURIComponent(gpsLink) + '%0A';
     if (manualAddress.trim()) message += '%F0%9F%8F%A0 Address: ' + encodeURIComponent(manualAddress.trim()) + '%0A';
     message += '%0APlease confirm the receipt of this order and let me know the estimated delivery time.%0A%0AThank you.';
@@ -120,6 +121,7 @@ function MainApp() {
   };
 
   const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+  const has20LCan = !!cart[1];
 
   return (
     <div className='app-container'>
@@ -161,6 +163,7 @@ function MainApp() {
         handleConfirmOrder={handleConfirmOrder}
         deliveryFloor={deliveryFloor}
         setDeliveryFloor={setDeliveryFloor}
+        has20LCan={has20LCan}
       />
 
       <Footer isHomePage={isHomePage} />
