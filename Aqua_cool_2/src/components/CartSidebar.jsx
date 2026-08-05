@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ShoppingCart, X, Plus, Minus, MessageCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { products } from '../constants/data';
 
-export default function CartSidebar({ isCartOpen, setIsCartOpen, cart, updateQuantity, setCart, openAddressModal }) {
+const CartSidebar = memo(({ isCartOpen, setIsCartOpen, cart, updateQuantity, setCart, openAddressModal }) => {
   const navigate = useNavigate();
   const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
   const grandTotal = products.reduce((t, p) => t + (cart[p.id] || 0) * p.price, 0);
@@ -63,4 +63,6 @@ export default function CartSidebar({ isCartOpen, setIsCartOpen, cart, updateQua
       </aside>
     </>
   );
-}
+});
+
+export default CartSidebar;

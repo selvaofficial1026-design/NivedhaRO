@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { X, Navigation, Loader2, CheckCircle, MessageCircle } from 'lucide-react';
 
-export default function AddressModal({
+const AddressModal = memo(({
   isAddressModalOpen,
   setIsAddressModalOpen,
   gpsLink,
   gpsLoading,
   locationError,
   handleGetLocation,
+  manualAddress,
+  setManualAddress,
   handleConfirmOrder,
   deliveryFloor,
   setDeliveryFloor,
   has20LCan
-}) {
+}) => {
   const isFloorValid = has20LCan ? deliveryFloor !== '' : true;
 
   return (
@@ -55,4 +57,6 @@ export default function AddressModal({
       </div>
     </div>
   );
-}
+});
+
+export default AddressModal;

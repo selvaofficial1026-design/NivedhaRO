@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { Droplets, ShoppingCart } from 'lucide-react';
 
-export default function Navbar({ isNavbarSolid, isHomePage, setIsCartOpen, totalItems }) {
+const Navbar = memo(({ isNavbarSolid, isHomePage, setIsCartOpen, totalItems }) => {
   return (
     <nav className={'navbar ' + (isNavbarSolid ? 'scrolled' : '')} role='navigation'>
       <Link to='/' className='brand'>
@@ -16,4 +16,6 @@ export default function Navbar({ isNavbarSolid, isHomePage, setIsCartOpen, total
       )}
     </nav>
   );
-}
+});
+
+export default Navbar;

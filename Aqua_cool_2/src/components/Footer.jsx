@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Droplets, MessageCircle, Phone, MapPin, Clock } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../constants/data';
 
-export default function Footer({ isHomePage }) {
+const Footer = memo(({ isHomePage }) => {
   if (!isHomePage) return null;
   
   return (
@@ -28,4 +28,6 @@ export default function Footer({ isHomePage }) {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;

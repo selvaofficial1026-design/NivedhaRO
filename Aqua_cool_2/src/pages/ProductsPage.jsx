@@ -10,8 +10,21 @@ export default function ProductsPage({ cart, updateQuantity }) {
   return (
     <>
       <Helmet>
-        <title>Products | Nivedha Water Service</title>
-        <meta name="description" content="Choose from our premium RO purified water packs. 20 Litre Cans, Bottles, and more." />
+        <title>Our Products | Nivedha Water Service</title>
+        <meta name="description" content="Choose from our premium RO purified water packs. Order 20 Litre Cans, 1 Litre Bottles, 500ml Bottles, and more online for fast delivery in Ariyalur." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Our Products | Nivedha Water Service" />
+        <meta property="og:description" content="Choose from our premium RO purified water packs. Fast doorstep delivery in Ariyalur." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=1200&auto=format&fit=crop" />
+        <meta property="og:url" content="https://nivedhawater.com/products" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Products | Nivedha Water Service" />
+        <meta name="twitter:description" content="Choose from our premium RO purified water packs. Fast doorstep delivery in Ariyalur." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=1200&auto=format&fit=crop" />
       </Helmet>
       <div className='page-spacer' />
       <section className='products-section'>

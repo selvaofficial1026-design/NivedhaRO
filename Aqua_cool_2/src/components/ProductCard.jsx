@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
-export default function ProductCard({ product, qty, updateQuantity }) {
+const ProductCard = memo(({ product, qty, updateQuantity }) => {
   return (
     <div className='product-card'>
       {product.badge && <span className='product-badge'>{product.badge}</span>}
@@ -25,4 +25,6 @@ export default function ProductCard({ product, qty, updateQuantity }) {
       )}
     </div>
   );
-}
+});
+
+export default ProductCard;
